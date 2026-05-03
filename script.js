@@ -78,6 +78,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ---- Hero slideshow ----
+  document.querySelectorAll(".hero-slideshow").forEach((show) => {
+    const slides = show.querySelectorAll(".hero-slide");
+    if (slides.length < 2) return;
+    const interval = parseInt(show.dataset.interval || "4000", 10);
+    let i = 0;
+    setInterval(() => {
+      slides[i].classList.remove("is-active");
+      i = (i + 1) % slides.length;
+      slides[i].classList.add("is-active");
+    }, interval);
+  });
+
   // ---- Year in footer ----
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();

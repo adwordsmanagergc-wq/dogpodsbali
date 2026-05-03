@@ -119,6 +119,28 @@ h1, h2, h3, h4 {
 }
 .gallery-item:hover img { transform: scale(1.05); }
 
+/* Hero slideshow */
+.hero-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  will-change: opacity;
+}
+.hero-slide.is-active { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { transition: none; }
+}
+
 /* Lightbox */
 .lightbox {
   position: fixed; inset: 0;
