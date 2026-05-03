@@ -1,0 +1,181 @@
+/* Dharma's Dog Pods — custom styles layered on top of Tailwind */
+
+:root {
+  --sand: #f7f1e6;
+  --cream: #fdfaf3;
+  --terracotta: #c8623c;
+  --terracotta-dark: #a64e2e;
+  --teal: #2f7d7a;
+  --teal-dark: #1f5c5a;
+  --ink: #2a221c;
+  --whatsapp: #25d366;
+  --whatsapp-dark: #128c7e;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* Focus rings (WCAG AA) */
+:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Floating WhatsApp button */
+.wa-float {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.1rem;
+  background: var(--whatsapp);
+  color: #fff;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.45), 0 6px 10px -4px rgba(0,0,0,0.15);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.wa-float:hover { background: var(--whatsapp-dark); transform: translateY(-2px); }
+.wa-float svg { width: 22px; height: 22px; }
+
+.wa-float::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2px solid rgba(37, 211, 102, 0.55);
+  animation: wa-pulse 2s infinite;
+  z-index: -1;
+}
+
+@keyframes wa-pulse {
+  0%   { transform: scale(0.95); opacity: 0.9; }
+  70%  { transform: scale(1.25); opacity: 0; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-float::before { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+@media (min-width: 640px) {
+  .wa-float { right: 1.5rem; bottom: 1.5rem; padding: 0.95rem 1.4rem; }
+}
+
+/* Decorative paw watermark */
+.paw-bg {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(200, 98, 60, 0.06) 0 18px, transparent 19px),
+    radial-gradient(circle at 84% 72%, rgba(47, 125, 122, 0.07) 0 22px, transparent 23px);
+}
+
+/* FAQ accordion */
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item .chev { transition: transform 0.2s ease; }
+.faq-item[open] .chev { transform: rotate(180deg); }
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+@media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; } }
+@media (min-width: 1024px){ .gallery-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #ece4d3;
+  aspect-ratio: 1 / 1;
+  cursor: zoom-in;
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+  padding: 1rem;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 95vw; max-height: 90vh;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.lightbox button {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  width: 2.5rem; height: 2.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Mobile nav */
+.nav-toggle[aria-expanded="true"] + .nav-menu { display: flex; }
+
+/* Subtle button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.btn-primary { background: var(--terracotta); color: #fff; }
+.btn-primary:hover { background: var(--terracotta-dark); transform: translateY(-1px); }
+.btn-wa { background: var(--whatsapp); color: #fff; }
+.btn-wa:hover { background: var(--whatsapp-dark); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+}
+.btn-outline:hover { background: var(--ink); color: #fff; }
+
+/* Section dividers */
+.wave-divider {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
