@@ -91,6 +91,82 @@ document.addEventListener("DOMContentLoaded", () => {
     }, interval);
   });
 
+  // ---- Sliding carousel (custom-dog-pods page) ----
+  document.querySelectorAll(".carousel").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+    const slides = Array.from(track.querySelectorAll(".carousel-slide"));
+    const prevBtn = carousel.querySelector(".carousel-prev");
+    const nextBtn = carousel.querySelector(".carousel-next");
+    const dotsWrap = carousel.querySelector(".carousel-dots");
+    if (!track || slides.length === 0) return;
+
+    const interval = parseInt(carousel.dataset.interval || "5000", 10);
+    let current = 0;
+    let timer = null;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-label", `Go to image ${i + 1}`);
+      dot.addEventListener("click", () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function goTo(i) {
+      current = (i + slides.length) % slides.length;
+      slides[current].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      updateDots();
+    }
+    function updateDots() {
+      dots.forEach((d, i) => d.setAttribute("aria-selected", i === current ? "true" : "false"));
+    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    prevBtn?.addEventListener("click", () => { prev(); restart(); });
+    nextBtn?.addEventListener("click", () => { next(); restart(); });
+
+    // Detect manual scroll → update active dot
+    let scrollTimeout;
+    track.addEventListener("scroll", () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const center = track.scrollLeft + track.clientWidth / 2;
+        let closest = 0;
+        let closestDist = Infinity;
+        slides.forEach((slide, i) => {
+          const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+          const dist = Math.abs(slideCenter - center);
+          if (dist < closestDist) { closestDist = dist; closest = i; }
+        });
+        current = closest;
+        updateDots();
+      }, 80);
+    });
+
+    function start() { timer = setInterval(next, interval); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+
+    carousel.addEventListener("mouseenter", stop);
+    carousel.addEventListener("mouseleave", start);
+    track.addEventListener("touchstart", stop, { passive: true });
+    track.addEventListener("touchend", () => setTimeout(start, 2000), { passive: true });
+
+    // Pause when off-screen
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([e]) => e.isIntersecting ? start() : stop(), { threshold: 0.2 })
+        .observe(carousel);
+    } else {
+      start();
+    }
+
+    updateDots();
+  });
+
   // ---- Year in footer ----
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
