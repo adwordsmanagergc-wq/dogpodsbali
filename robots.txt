@@ -1,5 +1,5 @@
 # robots.txt — Dharma's Dog Pods Bali
-# https://dharmasdogpods.com
+# https://dogpodsbali.com
 
 # All search engines welcome
 User-agent: *
@@ -66,4 +66,4 @@ User-agent: meta-externalagent
 Allow: /
 
 # Sitemap
-Sitemap: https://dharmasdogpods.com/sitemap.xml
+Sitemap: https://dogpodsbali.com/sitemap.xml

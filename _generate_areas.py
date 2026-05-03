@@ -167,7 +167,7 @@ def render(a):
     desc = (f"Custom dog pods fitted in {name}, Bali. Hand-laid fibreglass dog carriers built for any "
             f"moped or scooter — Vario, NMAX, Scoopy, PCX, Vespa. From IDR 2,400,000, ready in 4–7 days. "
             f"WhatsApp Dharma on +62 818 0802 9595.")
-    canonical = f"https://dharmasdogpods.com/dog-pods-{slug}.html"
+    canonical = f"https://dogpodsbali.com/dog-pods-{slug}.html"
 
     spots_html = "\n".join(
         f'        <article class="bg-white rounded-2xl p-5 border border-black/5 shadow-sm">\n'
@@ -231,7 +231,7 @@ def render(a):
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dharmasdogpods.com/"},
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://dogpodsbali.com/"},
             {"@type": "ListItem", "position": 2, "name": f"Dog Pods {name}", "item": canonical},
         ]
     }
@@ -243,7 +243,7 @@ def render(a):
         "url": canonical,
         "telephone": "+62 818 0802 9595",
         "priceRange": "IDR 2,400,000 – IDR 3,400,000+",
-        "image": "https://dharmasdogpods.com/blacknmaxdogpodbali.png",
+        "image": "https://dogpodsbali.com/blacknmaxdogpodbali.png",
         "areaServed": {"@type": "Place", "name": f"{name}, Bali, Indonesia"},
         "address": {"@type": "PostalAddress", "addressLocality": name, "addressRegion": "Bali", "addressCountry": "ID"},
         "description": f"Custom hand-laid fibreglass dog pods built and fitted in {name}, Bali. For any moped, scooter or motorbike. From IDR 2,400,000.",
@@ -271,12 +271,12 @@ def render(a):
   <meta property="og:title" content="Dog Pods {name} Bali — Dharma's Dog Pods" />
   <meta property="og:description" content="Custom fibreglass dog pods fitted in {name}, Bali. For any moped or scooter. From IDR 2,400,000." />
   <meta property="og:url" content="{canonical}" />
-  <meta property="og:image" content="https://dharmasdogpods.com/blacknmaxdogpodbali.png" />
+  <meta property="og:image" content="https://dogpodsbali.com/blacknmaxdogpodbali.png" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Dog Pods {name} Bali — Dharma's Dog Pods" />
   <meta name="twitter:description" content="Custom fibreglass dog pods fitted in {name}, Bali. From IDR 2,400,000, ready in 4–7 days." />
-  <meta name="twitter:image" content="https://dharmasdogpods.com/blacknmaxdogpodbali.png" />
+  <meta name="twitter:image" content="https://dogpodsbali.com/blacknmaxdogpodbali.png" />
 
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#c8623c" />
