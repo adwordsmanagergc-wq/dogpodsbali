@@ -165,7 +165,7 @@ def render(a):
     name = a["name"]; slug = a["slug"]
     title = f"Dog Pods {name} Bali — Custom Fibreglass Dog Carriers Fitted in {name} | Dharma's Dog Pods"
     desc = (f"Custom dog pods fitted in {name}, Bali. Hand-laid fibreglass dog carriers built for any "
-            f"moped or scooter — Vario, NMAX, Scoopy, PCX, Vespa. From IDR 2,400,000, ready in 5–6 days. "
+            f"moped or scooter — Vario, NMAX, Scoopy, PCX, Vespa. From IDR 2,400,000, ready in 4–7 days. "
             f"WhatsApp Dharma on +62 818 0802 9595.")
     canonical = f"https://dharmasdogpods.com/dog-pods-{slug}.html"
 
@@ -189,7 +189,7 @@ def render(a):
     faq_questions = [
         (
             f"Can I get a dog pod fitted in {name}, Bali?",
-            f"Yes — Dharma fits dog pods all over Bali, including throughout {name}. Most builds are completed in 5–6 days maximum and fitted to your bike at a location convenient for you in {name}."
+            f"Yes — Dharma fits dog pods all over Bali, including throughout {name}. Most builds are completed in 4–7 days average and fitted to your bike at a location convenient for you in {name}."
         ),
         (
             f"How much does a dog pod cost in {name}?",
@@ -197,7 +197,7 @@ def render(a):
         ),
         (
             f"How long does it take to make and fit a dog pod in {name}?",
-            f"Typically 5–6 days maximum from the time you confirm the build. Once it's ready, Dharma will arrange a fitting time in {name}."
+            f"Typically 4–7 days average from the time you confirm the build. Once it's ready, Dharma will arrange a fitting time in {name}."
         ),
         (
             f"Will the pod fit my scooter — Honda Vario, Yamaha NMAX, Vespa, etc?",
@@ -275,7 +275,7 @@ def render(a):
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Dog Pods {name} Bali — Dharma's Dog Pods" />
-  <meta name="twitter:description" content="Custom fibreglass dog pods fitted in {name}, Bali. From IDR 2,400,000, ready in 5–6 days." />
+  <meta name="twitter:description" content="Custom fibreglass dog pods fitted in {name}, Bali. From IDR 2,400,000, ready in 4–7 days." />
   <meta name="twitter:image" content="https://dharmasdogpods.com/blacknmaxdogpodbali.png" />
 
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -341,7 +341,7 @@ def render(a):
         <a href="/custom-dog-pods.html" class="btn btn-outline">See pod options</a>
       </div>
       <ul class="mt-8 grid grid-cols-3 gap-4 text-sm max-w-md mx-auto">
-        <li class="flex flex-col items-center"><span class="font-bold text-[var(--terracotta)] text-2xl">5–6</span><span class="text-[var(--ink)]/70">days max build</span></li>
+        <li class="flex flex-col items-center"><span class="font-bold text-[var(--terracotta)] text-2xl">4–7</span><span class="text-[var(--ink)]/70">days avg build</span></li>
         <li class="flex flex-col items-center"><span class="font-bold text-[var(--terracotta)] text-2xl">2.4M</span><span class="text-[var(--ink)]/70">IDR from</span></li>
         <li class="flex flex-col items-center"><span class="font-bold text-[var(--terracotta)] text-2xl">100%</span><span class="text-[var(--ink)]/70">fitted in {name}</span></li>
       </ul>
