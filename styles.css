@@ -109,7 +109,7 @@ h1, h2, h3, h4 {
   overflow: hidden;
   border-radius: 0.75rem;
   background: #ece4d3;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   cursor: zoom-in;
 }
 .gallery-item img {
